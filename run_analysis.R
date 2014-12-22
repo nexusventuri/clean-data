@@ -3,7 +3,6 @@ clean_data = function() {
 	main_folder = "UCI HAR Dataset/"
 
 	colnames = read_table_from(main_folder, "features.txt")[[2]]
-	activities = read_table_from(main_folder, "activity_labels.txt")[[2]]
 
 	# read test table
 	test = read_table_from(main_folder, "test/X_test.txt")
@@ -24,6 +23,8 @@ clean_data = function() {
 
 	# label activities
 	merged_table$activity = as.factor(merged_table$activity)
+
+	activities = read_table_from(main_folder, "activity_labels.txt")[[2]]
 	levels(merged_table$activity) = activities
 	
 	# extract interesting columns

@@ -31,13 +31,18 @@ Codebook
 
 clean_data is the main function and is executed at the end of the script.
 
-It first load the list of column names from the features.txt 
+It first load the list of column names from the features.txt file, the file contains an index and a string describing the columns in the x_test and x_train files
 
 It will then load all the data in the test and train folders, and save them in the test and train tables adding information about the column names.
-The script then merges the two tables (which contain the activity and subject columns).
-labels the activity column converting it from a numeric column to a factor column.
+It adds the subject and the activity columns on both tables, those columns are taken from separate files, and they just contain a number for each measurement. 
+- Subject is an identifier from 1 to 30 identifying the subject that took the measurement.
+- Activiy is an identifier describing the kind of activity that the subject was performing during the measurement
+
+The script then merges the two tables.
+labels the activity column converting it from a numeric column to a factor column for clarity.
+
 The script then extract all the meaningful columns (mean, std, activity and subject).
-And then calculates the average for each activity and each subject using the aggregate function
+And then calculates the average for each variable for each activity and each subject using the aggregate function
 
 Ends writing the result to a text file.
 
